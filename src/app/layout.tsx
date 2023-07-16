@@ -17,7 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className='scroll-smooth' lang='en'>
+    <html
+      className='scroll-smooth selection:bg-slate-800 selection:text-slate-100'
+      lang='en'
+    >
       <head>
         <link
           rel='stylesheet'
@@ -27,10 +30,10 @@ export default function RootLayout({
           referrerPolicy='no-referrer'
         />
       </head>
-      <body className={`${inter.className} min-h-[300vh]`}>
+      <body className={inter.className}>
         <Nav />
         <ScrollToTop />
-        <div className='max-w-screen-md mx-auto mt-16 p-4'>{children}</div>
+        <div className='max-w-screen-md mx-auto my-16 p-4 pt-6'>{children}</div>
       </body>
     </html>
   );

@@ -17,7 +17,7 @@ export default function ScrollToTop() {
 
   return (
     <button
-      className={`fixed bottom-3 right-3 shadow-[0_2px_8px_rgba(0,0,0,0.2)] text-2xl w-12 h-12 rounded-full transition-all text-slate-800 hover:bg-gray-100 ${
+      className={`bg-white fixed bottom-3 inset-x-0 mx-auto shadow-[0_2px_8px_rgba(0,0,0,0.2)] text-2xl w-12 h-12 rounded-full transition-all text-slate-800 hover:bg-gray-100 ${
         hidden ? 'scale-0' : 'scale-100'
       }`}
       onClick={() => {
