@@ -1,3 +1,5 @@
+import TopicForm from '@components/TopicForm';
+
 export default function EditTopic() {
-  return <h1>edit topic</h1>;
+  return <TopicForm submissionText='Update Topic' />;
 }
