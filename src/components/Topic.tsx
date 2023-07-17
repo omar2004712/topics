@@ -35,7 +35,15 @@ export default function Topic({ topic }: TopicParams) {
             {new Date(topic.updatedAt.toString()).toDateString()}
           </label>
         </header>
-        <div className='text-slate-400'>{topic.description}</div>
+        <div
+          className='text-slate-400'
+          dangerouslySetInnerHTML={{
+            __html: topic.description
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/\n/g, '<br />'),
+          }}
+        />
       </div>
       <div className='flex gap-2 items-start'>
         <RemoveButton onDelete={onDelete} />
