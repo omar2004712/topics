@@ -23,7 +23,7 @@ export default async function EditTopic({
     <TopicForm
       submissionText='Update Topic'
       topic={topic}
-      submitUrl={`${process.env.WEB_URL}/api/topics/${id}`}
+      submitUrl={`/api/topics/${id}`}
       method='put'
     />
   );

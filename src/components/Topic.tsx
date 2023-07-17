@@ -14,7 +14,7 @@ export default function Topic({ topic }: TopicParams) {
 
   const onDelete = async () => {
     try {
-      await fetch(`${process.env.WEB_URL}/api/topics/${topic._id.toString()}`, {
+      await fetch(`/api/topics/${topic._id.toString()}`, {
         method: 'delete',
       });
 
