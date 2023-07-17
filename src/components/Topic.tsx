@@ -34,7 +34,10 @@ export default function Topic({ topic }: TopicParams) {
       </div>
       <div className='flex gap-2 items-start'>
         <RemoveButton onDelete={onDelete} />
-        <Link href='/edit-topic/123' className='text-slate-800'>
+        <Link
+          href={`/edit-topic/${topic._id.toString()}`}
+          className='text-slate-800'
+        >
           <HiPencilAlt size={24} />
         </Link>
       </div>
