@@ -1,8 +1,11 @@
-import mongoose, { Model, Schema } from 'mongoose';
+import mongoose, { Model, ObjectId, Schema } from 'mongoose';
 
-interface ITopic {
+export interface ITopic {
+  _id: string | ObjectId;
   title: string;
   description: string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
 }
 
 const topicSchema = new Schema<ITopic>(
