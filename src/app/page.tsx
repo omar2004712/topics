@@ -20,7 +20,7 @@ const getTopics = async () => {
 export default async function Home() {
   const topics = await getTopics();
 
-  return topics.map((topic: ITopic) => {
-    return <Topic topic={topic} key={topic._id.toString()} />;
-  });
+  return topics.map((topic: ITopic) => (
+    <Topic topic={topic} key={topic._id.toString()} />
+  ));
 }
