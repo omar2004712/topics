@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import RemoveButton from './RemoveButton';
 import { HiPencilAlt } from 'react-icons/hi';
@@ -8,6 +10,16 @@ interface TopicParams {
 }
 
 export default function Topic({ topic }: TopicParams) {
+  const onDelete = async () => {
+    try {
+      await fetch(`http://localhost:3000/api/topics/${topic._id.toString()}`, {
+        method: 'delete',
+      });
+    } catch (err) {
+      console.error('Could not delete topic: ', err);
+    }
+  };
+
   return (
     <div className='p-4 border border-slate-300 my-3 flex justify-between rounded'>
       <div className='flex flex-col gap-3'>
@@ -21,7 +33,7 @@ export default function Topic({ topic }: TopicParams) {
         <div className='text-slate-400'>{topic.description}</div>
       </div>
       <div className='flex gap-2 items-start'>
-        <RemoveButton />
+        <RemoveButton onDelete={onDelete} />
         <Link href='/edit-topic/123' className='text-slate-800'>
           <HiPencilAlt size={24} />
         </Link>

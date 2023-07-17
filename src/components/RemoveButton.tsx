@@ -1,8 +1,14 @@
+'use client';
+
 import { HiOutlineTrash } from 'react-icons/hi';
 
-export default function RemoveButton() {
+interface RemoveButtonProps {
+  onDelete: () => any;
+}
+
+export default function RemoveButton({ onDelete }: RemoveButtonProps) {
   return (
-    <button className='text-red-400'>
+    <button className='text-red-400' onClick={onDelete}>
       <HiOutlineTrash size={24} />
     </button>
   );
