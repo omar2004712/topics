@@ -1,7 +1,7 @@
 import TopicForm from '@components/TopicForm';
 
 const getTopic = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+  const res = await fetch(`${process.env.WEB_URL}/api/topics/${id}`, {
     method: 'get',
     next: {
       revalidate: 0,
@@ -23,7 +23,7 @@ export default async function EditTopic({
     <TopicForm
       submissionText='Update Topic'
       topic={topic}
-      submitUrl={`http://localhost:3000/api/topics/${id}`}
+      submitUrl={`${process.env.WEB_URL}/api/topics/${id}`}
       method='put'
     />
   );

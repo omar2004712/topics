@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import RemoveButton from './RemoveButton';
 import { HiPencilAlt } from 'react-icons/hi';
 import { ITopic } from '@models/topic';
@@ -15,7 +14,7 @@ export default function Topic({ topic }: TopicParams) {
 
   const onDelete = async () => {
     try {
-      await fetch(`http://localhost:3000/api/topics/${topic._id.toString()}`, {
+      await fetch(`${process.env.WEB_URL}/api/topics/${topic._id.toString()}`, {
         method: 'delete',
       });
 

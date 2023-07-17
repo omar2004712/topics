@@ -3,7 +3,7 @@ import { ITopic } from '@models/topic';
 
 const getTopics = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/topics', {
+    const res = await fetch(`${process.env.WEB_URL}/api/topics`, {
       next: {
         revalidate: 0,
       },

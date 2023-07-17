@@ -4,7 +4,7 @@ export default function AddTopic() {
   return (
     <TopicForm
       submissionText='Add Topic'
-      submitUrl='http://localhost:3000/api/topics'
+      submitUrl={`${process.env.WEB_URL}/api/topics`}
       method='post'
     />
   );
