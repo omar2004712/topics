@@ -4,7 +4,6 @@ import { ITopic } from '@models/topic';
 const getTopics = async () => {
   try {
     const res = await fetch('http://localhost:3000/api/topics', {
-      cache: 'no-store',
       next: {
         revalidate: 0,
       },
@@ -23,7 +22,10 @@ const getTopics = async () => {
 export default async function Home() {
   const topics = await getTopics();
 
-  return topics.map((topic: ITopic) => (
-    <Topic topic={topic} key={topic._id.toString()} />
-  ));
+  if (topics instanceof Array)
+    return topics.map((topic: ITopic) => (
+      <Topic topic={topic} key={topic._id.toString()} />
+    ));
+
+  return null;
 }

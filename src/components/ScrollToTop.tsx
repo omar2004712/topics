@@ -3,16 +3,17 @@
 import { useEffect, useState } from 'react';
 
 export default function ScrollToTop() {
-  const [hidden, setHidden] = useState(window.scrollY === 0);
+  const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY !== 0 && hidden) {
-        setHidden(false);
-      } else if (window.scrollY === 0 && !hidden) {
-        setHidden(true);
-      }
-    });
+    if (typeof window !== 'undefined')
+      window.addEventListener('scroll', () => {
+        if (window.scrollY !== 0 && hidden) {
+          setHidden(false);
+        } else if (window.scrollY === 0 && !hidden) {
+          setHidden(true);
+        }
+      });
   }, [hidden]);
 
   return (

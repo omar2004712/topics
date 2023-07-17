@@ -31,6 +31,7 @@ export default function TopicForm({
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
     });
 
+    router.refresh();
     router.push('/');
   };
 

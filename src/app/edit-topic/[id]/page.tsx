@@ -3,7 +3,6 @@ import TopicForm from '@components/TopicForm';
 const getTopic = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
     method: 'get',
-    cache: 'no-store',
     next: {
       revalidate: 0,
     },

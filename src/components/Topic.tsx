@@ -4,17 +4,22 @@ import Link from 'next/link';
 import RemoveButton from './RemoveButton';
 import { HiPencilAlt } from 'react-icons/hi';
 import { ITopic } from '@models/topic';
+import { useRouter } from 'next/navigation';
 
 interface TopicParams {
   topic: ITopic;
 }
 
 export default function Topic({ topic }: TopicParams) {
+  const router = useRouter();
+
   const onDelete = async () => {
     try {
       await fetch(`http://localhost:3000/api/topics/${topic._id.toString()}`, {
         method: 'delete',
       });
+
+      router.refresh();
     } catch (err) {
       console.error('Could not delete topic: ', err);
     }
@@ -34,12 +39,12 @@ export default function Topic({ topic }: TopicParams) {
       </div>
       <div className='flex gap-2 items-start'>
         <RemoveButton onDelete={onDelete} />
-        <Link
+        <a
           href={`/edit-topic/${topic._id.toString()}`}
           className='text-slate-800'
         >
           <HiPencilAlt size={24} />
-        </Link>
+        </a>
       </div>
     </div>
   );
